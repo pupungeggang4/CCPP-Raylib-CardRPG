@@ -33,6 +33,8 @@ void SceneField::render(Game& game) {
 
     Render::drawText("WASD Move I Inventory E Interact", UI::UIField["text_key"]);
     Render::drawTexture(Asset::texture["button_menu"], UI::UIField["button_menu"]);
+    Render::drawRect(UI::UIField["button_map"], PINK);
+    Render::drawRect(UI::UIField["button_inventory"], PINK);
 
     if (game.state == INVENTORY) windowInventory->render(game);
     else if (game.state == SAVE_CONFIRM) renderSave(game);
@@ -93,7 +95,13 @@ void SceneField::mouseUp(Game& game, Vector2 pos) {
         }
 
         if (game.state == NORMAL) {
-
+            if (Util::pointInsideRectUI(pos, UI::UIField["button_inventory"])) {
+                game.state = INVENTORY;
+            }
+        } else if (game.state == INVENTORY) {
+            if (Util::pointInsideRectUI(pos, UI::UIInventory["button_close"])) {
+                game.state = NORMAL;
+            }
         } else if (game.state == SAVE_CONFIRM) {
             if (Util::pointInsideRectUI(pos, UI::UISave["button_yes"])) {
                 SaveData::writeSaveData(game);

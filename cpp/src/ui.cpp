@@ -13,7 +13,9 @@ std::unordered_map<std::string, std::array<float, 6>> UI::UITitle = {
 
 std::unordered_map<std::string, std::array<float, 6>> UI::UIField = {
     {"button_menu", {740, 20, 40, 40}},
-    {"text_key", {20, 560}}
+    {"text_key", {20, 560}},
+    {"button_inventory", {700, 500, 80, 80}},
+    {"button_map", {600, 500, 80, 80}}
 };
 
 std::unordered_map<std::string, std::array<float, 6>> UI::UIBattle = {
