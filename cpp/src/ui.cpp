@@ -25,6 +25,15 @@ std::unordered_map<std::string, std::array<float, 6>> UI::UIInventory = {
     {"button_close", {680, 20, 40, 40}},
 };
 
+std::unordered_map<std::string, std::array<float, 6>> UI::UISave = {
+    {"rect", {160, 200, 480, 200}},
+    {"text_title", {180, 220}},
+    {"button_yes", {200, 280, 160, 80}},
+    {"text_yes", {220, 300}},
+    {"button_no", {440, 280, 160, 80}},
+    {"text_no", {460, 300}}
+};
+
 std::unordered_map<std::string, std::array<float, 6>> UI::UIBattleStart = {
 
 };

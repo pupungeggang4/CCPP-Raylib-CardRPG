@@ -1,8 +1,9 @@
 #include "game.hpp"
 #include "scene.hpp"
 #include "asset.hpp"
-#include "field.hpp"
+#include "savedata.hpp"
 
+#include "field.hpp"
 #include "battle/battle.hpp"
 
 Game game = Game();
@@ -36,6 +37,7 @@ void Game::init() {
 
     Asset::assetLoad();
     FieldData::loadFieldData();
+    SaveData::loadSaveData();
 
     field = make_shared<Field>();
     field->place = HOME_TOWN;

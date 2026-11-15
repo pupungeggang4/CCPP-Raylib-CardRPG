@@ -100,6 +100,8 @@ void Field::interact(Game& game) {
                 player.pos.y = player.cellPos.y * 40;
                 loadField(place);
                 break;
+            } else if (entity.type == SAVE) {
+                game.state = SAVE_CONFIRM;
             }
         }
     }

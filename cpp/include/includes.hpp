@@ -23,7 +23,7 @@ using std::shared_ptr;
 using std::make_shared;
 
 enum SceneName {TITLE, FIELD, BATTLE};
-enum State {NORMAL, INVENTORY, MAP};
+enum State {NORMAL, INVENTORY, MAP, SAVE_CONFIRM};
 enum FieldEntityType {NONE, PORTAL, SAVE, ENEMY};
 enum Direction {LEFT, RIGHT, UP, DOWN};
 

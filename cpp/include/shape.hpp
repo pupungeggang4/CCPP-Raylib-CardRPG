@@ -5,7 +5,7 @@ typedef struct Vector2i {
     int x; int y;
 } Vector2i;
 
-typedef struct  Recti {
+typedef struct Recti {
     int x; int y; int w; int h;
 } Recti;
 

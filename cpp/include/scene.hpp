@@ -39,6 +39,7 @@ class SceneField : public Scene {
         void ready(Game&) override;
         void update(Game&) override;
         void render(Game&) override;
+        void renderSave(Game&);
         void keyDown(Game&) override;
         void mouseUp(Game&, Vector2) override;
 };

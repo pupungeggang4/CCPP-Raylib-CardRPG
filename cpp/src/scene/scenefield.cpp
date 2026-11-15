@@ -2,6 +2,8 @@
 
 #include "asset.hpp"
 #include "ui.hpp"
+#include "savedata.hpp"
+
 #include "util.hpp"
 #include "render.hpp"
 
@@ -33,10 +35,19 @@ void SceneField::render(Game& game) {
     Render::drawTexture(Asset::texture["button_menu"], UI::UIField["button_menu"]);
 
     if (game.state == INVENTORY) windowInventory->render(game);
-
+    else if (game.state == SAVE_CONFIRM) renderSave(game);
     if (game.menu) {
         menuField->render(game);
     }
+}
+
+void SceneField::renderSave(Game& game) {
+    Render::drawRect(UI::UISave["rect"], YELLOW);
+    Render::drawText("Save?", UI::UISave["text_title"]);
+    Render::drawRect(UI::UISave["button_yes"], PINK);
+    Render::drawText("Yes [Y]", UI::UISave["text_yes"]);
+    Render::drawRect(UI::UISave["button_no"], PINK);
+    Render::drawText("No [N]", UI::UISave["text_no"]);
 }
 
 void SceneField::keyDown(Game& game) {
@@ -61,6 +72,11 @@ void SceneField::keyDown(Game& game) {
                 game.state = NORMAL;
             }
             windowInventory->keyDown(game);
+        } else if (game.state == SAVE_CONFIRM) {
+            if (IsKeyPressed(KEY_Y)) {
+                SaveData::writeSaveData(game);
+                game.state = NORMAL;
+            } else if (IsKeyPressed(KEY_N)) game.state = NORMAL;
         }
     }
 }
@@ -74,6 +90,17 @@ void SceneField::mouseUp(Game& game, Vector2 pos) {
     } else {
         if (Util::pointInsideRectUI(pos, UI::UIField["button_menu"])) {
             game.menu = true;
+        }
+
+        if (game.state == NORMAL) {
+
+        } else if (game.state == SAVE_CONFIRM) {
+            if (Util::pointInsideRectUI(pos, UI::UISave["button_yes"])) {
+                SaveData::writeSaveData(game);
+                game.state = NORMAL;
+            } else if (Util::pointInsideRectUI(pos, UI::UISave["button_no"])) {
+                game.state = NORMAL;
+            }
         }
     }
 }

@@ -2,10 +2,13 @@
 
 #include "asset.hpp"
 #include "ui.hpp"
+#include "savedata.hpp"
+
 #include "util.hpp"
 #include "render.hpp"
 
 #include "game.hpp"
+#include "field.hpp"
 
 SceneTitle::SceneTitle() {
 }
@@ -36,13 +39,17 @@ void SceneTitle::keyDown(Game& game) {
     if (IsKeyPressed(KEY_DOWN) || IsKeyPressed(KEY_S)) selectedTitle = (selectedTitle + 1) % 3;
     else if (IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_W)) selectedTitle = (selectedTitle + 2) % 3;
     else if (IsKeyPressed(KEY_ENTER)) {
-        if (selectedTitle == 0) game.changeSceneTo(FIELD);
-        else if (selectedTitle == 2) game.running = false;
+        if (selectedTitle == 0) {
+            SaveData::readSaveData(game);
+            game.changeSceneTo(FIELD);
+        } else if (selectedTitle == 2) game.running = false;
    }
 }
 
 void SceneTitle::mouseUp(Game& game, Vector2 pos) {
-    if (Util::pointInsideRectUI(pos, UI::UITitle["button_start"])) game.changeSceneTo(FIELD);
-    else if (Util::pointInsideRectUI(pos, UI::UITitle["button_quit"])) game.running = false;
+    if (Util::pointInsideRectUI(pos, UI::UITitle["button_start"])) {
+        SaveData::readSaveData(game);
+        game.changeSceneTo(FIELD);
+    } else if (Util::pointInsideRectUI(pos, UI::UITitle["button_quit"])) game.running = false;
 }
 
