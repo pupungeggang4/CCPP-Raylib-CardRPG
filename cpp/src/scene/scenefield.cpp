@@ -6,9 +6,7 @@
 
 #include "util.hpp"
 #include "render.hpp"
-
 #include "field.hpp"
-
 #include "game.hpp"
 
 SceneField::SceneField() {
@@ -31,10 +29,15 @@ void SceneField::update(Game& game) {
 void SceneField::render(Game& game) {
     game.field->render(game);
 
-    Render::drawText("WASD Move I Inventory E Interact", UI::UIField["text_key"]);
+    Render::drawText("WASD Move I Inventory E Interact M Map", UI::UIField["text_key"]);
     Render::drawTexture(Asset::texture["button_menu"], UI::UIField["button_menu"]);
-    Render::drawRect(UI::UIField["button_map"], PINK);
-    Render::drawRect(UI::UIField["button_inventory"], PINK);
+    Render::drawTexture(Asset::texture["map"], UI::UIField["button_map"]);
+    Render::drawTexture(Asset::texture["interact"], UI::UIField["button_interact"]);
+    Render::drawTexture(Asset::texture["inventory"], UI::UIField["button_inventory"]);
+    Render::drawTexture(Asset::texture["arrow_left"], UI::UIField["button_left"]);
+    Render::drawTexture(Asset::texture["arrow_right"], UI::UIField["button_right"]);
+    Render::drawTexture(Asset::texture["arrow_up"], UI::UIField["button_up"]);
+    Render::drawTexture(Asset::texture["arrow_down"], UI::UIField["button_down"]);
 
     if (game.state == INVENTORY) windowInventory->render(game);
     else if (game.state == SAVE_CONFIRM) renderSave(game);
@@ -97,6 +100,8 @@ void SceneField::mouseUp(Game& game, Vector2 pos) {
         if (game.state == NORMAL) {
             if (Util::pointInsideRectUI(pos, UI::UIField["button_inventory"])) {
                 game.state = INVENTORY;
+            } else if (Util::pointInsideRectUI(pos, UI::UIField["button_interact"])) {
+                game.field->interact(game);
             }
         } else if (game.state == INVENTORY) {
             if (Util::pointInsideRectUI(pos, UI::UIInventory["button_close"])) {

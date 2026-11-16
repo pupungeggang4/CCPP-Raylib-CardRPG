@@ -2,7 +2,9 @@
 
 #include "render.hpp"
 #include "asset.hpp"
+#include "ui.hpp"
 #include "game.hpp"
+#include "util.hpp"
 #include "battle/battle.hpp"
 
 Field::Field() {
@@ -21,6 +23,27 @@ void Field::update(Game& game) {
                 player.cellPos.x += directionCell[i][0];
                 player.cellPos.y += directionCell[i][1];
                 break;
+            }
+        }
+        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
+            Vector2 pos = Vector2Scale(GetMousePosition(), 1 / game.camera.zoom);
+            int direction = -1;
+            if (Util::pointInsideRectUI(pos, UI::UIField["button_left"])) {
+                direction = LEFT;
+            } else if (Util::pointInsideRectUI(pos, UI::UIField["button_right"])) {
+                direction = RIGHT;
+            } else if (Util::pointInsideRectUI(pos, UI::UIField["button_up"])) {
+                direction = UP;
+            } else if (Util::pointInsideRectUI(pos, UI::UIField["button_down"])) {
+                direction = DOWN;
+            }
+            if (direction != -1) {
+                player.moving = true;
+                player.movedDistance = 0;
+                player.facing = direction;
+                player.movingDirection = direction;
+                player.cellPos.x += directionCell[direction][0];
+                player.cellPos.y += directionCell[direction][1];
             }
         }
     } else {
