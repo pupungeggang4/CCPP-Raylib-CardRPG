@@ -10,6 +10,18 @@ void sceneTitleRender(GameVar*);
 void sceneTitleMouseUp(GameVar*, Vector2, int);
 void sceneTitleKeyDown(GameVar*);
 
+void sceneFileReady(GameVar*);
+void sceneFileUpdate(GameVar*);
+void sceneFileRender(GameVar*);
+void sceneFileMouseUp(GameVar*, Vector2, int);
+void sceneFileKeyDown(GameVar*);
+
+void sceneFieldReady(GameVar*);
+void sceneFieldUpdate(GameVar*);
+void sceneFieldRender(GameVar*);
+void sceneFieldMouseUp(GameVar*, Vector2, int);
+void sceneFieldKeyDown(GameVar*);
+
 extern void (*sceneReadys[])(GameVar*);
 extern void (*sceneUpdates[])(GameVar*);
 extern void (*sceneRenders[])(GameVar*);

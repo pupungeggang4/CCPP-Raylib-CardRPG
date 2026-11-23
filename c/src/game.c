@@ -1,6 +1,8 @@
 #include "game.h"
 #include "gamevar.h"
 
+#include "scene.h"
+
 void gameInit(GameVar* gameVar) {
     gameVar->width = 800; gameVar->height = 600; gameVar->aspRatio = 0.75;
     SetConfigFlags(FLAG_VSYNC_HINT);
@@ -19,6 +21,8 @@ void gameInit(GameVar* gameVar) {
     SetExitKey(KEY_NULL);
     gameVar->running = TRUE;
     Camera2D tempCamera = {0}; gameVar->camera = tempCamera;
+
+    gameVar->scene = S_TITLE;
 }
 
 void gameLoop(GameVar* gameVar) {
@@ -26,17 +30,24 @@ void gameLoop(GameVar* gameVar) {
     gameVar->dt = GetFrameTime();
     gameInputHandle(gameVar);
 
-    // update
+    sceneUpdates[gameVar->scene](gameVar);
     BeginDrawing();
+    ClearBackground(RAYWHITE);
     BeginMode2D(gameVar->camera);
+    sceneRenders[gameVar->scene](gameVar);
     EndMode2D();
     EndDrawing();
 
+    if (gameVar->sceneNext != -1) {
+        gameVar->scene = gameVar->sceneNext;
+        sceneReadys[gameVar->scene](gameVar);
+        gameVar->sceneNext = -1;
+    }
     if (WindowShouldClose()) gameVar->running = FALSE;
 }
 
 void gameInputHandle(GameVar* gameVar) {
-
+    sceneKeyDowns[gameVar->scene](gameVar);
 }
 
 void gameEnd() {

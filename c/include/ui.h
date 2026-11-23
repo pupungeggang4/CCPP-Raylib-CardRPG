@@ -6,6 +6,10 @@
 
 struct UITitle {
     Vector2 textTitle;
+    Rectangle buttonStart;
+    Vector2 textStart;
+    Rectangle buttonQuit;
+    Vector2 textQuit;
 };
 
 struct UIField {
