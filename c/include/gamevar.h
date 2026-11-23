@@ -29,6 +29,8 @@ struct GameVar {
 
     SceneTitleVar sceneTitleVar;
     SceneFileVar sceneFileVar;
+    SceneFieldVar sceneFieldVar;
+    SceneBattleVar sceneBattleVar;
 };
 
 extern GameVar gameVar;
