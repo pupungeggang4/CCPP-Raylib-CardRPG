@@ -9,6 +9,7 @@ enum SceneStateName {ST_NORMAL, ST_INVENTORY, ST_MENU};
 // typedef struct UI UI;
 typedef struct UITitle UITitle;
 typedef struct UIField UIField;
+typedef struct UIFile UIFile;
 typedef struct UIInventory UIInventory;
 typedef struct UIMap UIMap;
 typedef struct UIBattle UIBattle;

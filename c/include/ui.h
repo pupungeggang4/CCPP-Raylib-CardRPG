@@ -12,6 +12,12 @@ struct UITitle {
     Vector2 textQuit;
 };
 
+struct UIFile {
+    Vector2 textTitle;
+    Rectangle buttonFile[3];
+    Rectangle buttonDelete;
+};
+
 struct UIField {
     Rectangle buttonMenu;
 
@@ -39,6 +45,7 @@ struct UIMenuBattle {
 
 extern UITitle uiTitle;
 extern UIField uiField;
+extern UIFile uiFile;
 extern UIBattle uiBattle;
 extern UIInventory uiInventory;
 extern UIMap uiMap;
