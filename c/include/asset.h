@@ -5,7 +5,12 @@
 #include "types.h"
 
 struct Asset {
-
+    Texture2D texture[100];
 };
+
+extern Asset asset;
+
+void assetLoad(Asset*);
+void assetDispose(Asset*);
 
 #endif

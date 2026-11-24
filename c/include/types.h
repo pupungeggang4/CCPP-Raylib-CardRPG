@@ -3,6 +3,7 @@
 
 enum Boolean {FALSE, TRUE};
 enum Direction {LEFT, RIGHT, UP, DOWN};
+enum TextureName {T_MENU};
 enum SceneName {S_TITLE, S_FILE, S_FIELD, S_BATTLE};
 enum SceneStateName {ST_NORMAL, ST_INVENTORY, ST_MENU};
 

@@ -1,6 +1,7 @@
 #include "game.h"
 #include "gamevar.h"
 
+#include "asset.h"
 #include "scene.h"
 
 void gameInit(GameVar* gameVar) {
@@ -22,6 +23,7 @@ void gameInit(GameVar* gameVar) {
     gameVar->running = TRUE;
     Camera2D tempCamera = {0}; gameVar->camera = tempCamera;
 
+    assetLoad(&asset);
     gameVar->scene = S_TITLE;
 }
 
@@ -51,5 +53,6 @@ void gameInputHandle(GameVar* gameVar) {
 }
 
 void gameEnd() {
+    assetDispose(&asset);
     CloseWindow();
 }
