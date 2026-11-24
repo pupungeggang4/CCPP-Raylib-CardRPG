@@ -14,6 +14,7 @@ struct SceneFileVar {
 
 struct SceneFieldVar {
     int selected;
+    int selectedMenu;
 };
 
 struct SceneBattleVar {

@@ -10,5 +10,5 @@ void drawRect(Rectangle rect, Color color) {
 
 void drawTexture(Texture2D texture, Rectangle rect) {
     Vector2 pos = {rect.x, rect.y};
-    DrawTextureRec(texture, rect, pos, WHITE);
+    DrawTextureV(texture, pos, WHITE);
 }

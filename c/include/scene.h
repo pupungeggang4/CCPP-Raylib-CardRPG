@@ -22,6 +22,22 @@ void sceneFieldRender(GameVar*);
 void sceneFieldMouseUp(GameVar*, Vector2, int);
 void sceneFieldKeyDown(GameVar*);
 
+void sceneBattleReady(GameVar*);
+void sceneBattleUpdate(GameVar*);
+void sceneBattleRender(GameVar*);
+void sceneBattleMouseUp(GameVar*, Vector2, int);
+void sceneBattleKeyDown(GameVar*);
+
+void sceneMenuFieldReady(GameVar*);
+void sceneMenuFieldRender(GameVar*);
+void sceneMenuFieldMouseUp(GameVar*, Vector2, int);
+void sceneMenuFieldKeyDown(GameVar*);
+
+void sceneMenuBattleReady(GameVar*);
+void sceneMenuBattleRender(GameVar*);
+void sceneMenuBattleMouseUp(GameVar*, Vector2, int);
+void sceneMenuBattleKeyDown(GameVar*);
+
 extern void (*sceneReadys[])(GameVar*);
 extern void (*sceneUpdates[])(GameVar*);
 extern void (*sceneRenders[])(GameVar*);

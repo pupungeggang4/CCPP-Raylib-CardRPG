@@ -20,11 +20,11 @@ struct UIFile {
 
 struct UIField {
     Rectangle buttonMenu;
-
 };
 
 struct UIInventory {
-
+    Rectangle rect;
+    Rectangle buttonClose;
 };
 
 struct UIMap {
@@ -36,7 +36,14 @@ struct UIBattle {
 };
 
 struct UIMenuField {
-
+    Rectangle rect;
+    Vector2 textPaused;
+    Rectangle buttonResume;
+    Vector2 textResume;
+    Rectangle buttonExit;
+    Vector2 textExit;
+    Rectangle buttonQuit;
+    Vector2 textQuit;
 };
 
 struct UIMenuBattle {

@@ -13,3 +13,18 @@ UIFile uiFile = {
     {{40, 80, 240, 400}, {280, 80, 240, 400}, {520, 80, 240, 400}}, // buttonFile
     {680, 500, 80, 80}, // buttonDelete
 };
+
+UIField uiField = {
+    {740, 20, 40, 40}, // buttonMenu
+};
+
+UIMenuField uiMenuField = {
+    {160, 140, 480, 320}, // rect
+    {180, 160}, // textPaused
+    {160, 220, 480, 80}, // buttonResume
+    {180, 240}, // textResume
+    {160, 300, 480, 80}, // buttonExit
+    {180, 320}, // textExit
+    {160, 380, 480, 80}, // buttonQuit
+    {180, 400}, // textQuit
+};

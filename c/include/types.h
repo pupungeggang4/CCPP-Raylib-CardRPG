@@ -6,7 +6,7 @@ enum Direction {LEFT, RIGHT, UP, DOWN};
 enum SceneName {S_TITLE, S_FILE, S_FIELD, S_BATTLE};
 enum SceneStateName {ST_NORMAL, ST_INVENTORY, ST_MENU};
 
-// typedef struct UI UI;
+typedef struct Asset Asset;
 typedef struct UITitle UITitle;
 typedef struct UIField UIField;
 typedef struct UIFile UIFile;
