@@ -36,5 +36,11 @@ void sceneFileKeyDown(GameVar* gameVar) {
 }
 
 void sceneFileMouseUp(GameVar* gameVar, Vector2 pos, int button) {
-
+    if (button == LEFT) {
+        for (int i = 0; i < 3; i++) {
+            if (CheckCollisionPointRec(pos, uiFile.buttonFile[i])) {
+                gameVar->sceneNext = S_FIELD;
+            }
+        }
+    }
 }

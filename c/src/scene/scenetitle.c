@@ -37,5 +37,8 @@ void sceneTitleKeyDown(GameVar* gameVar) {
 }
 
 void sceneTitleMouseUp(GameVar* gameVar, Vector2 pos, int button) {
-
+    if (button == LEFT) {
+        if (CheckCollisionPointRec(pos, uiTitle.buttonStart)) gameVar->sceneNext = S_FILE;
+        else if (CheckCollisionPointRec(pos, uiTitle.buttonQuit)) gameVar->running = 0;
+    }
 }

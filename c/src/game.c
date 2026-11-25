@@ -49,6 +49,15 @@ void gameLoop(GameVar* gameVar) {
 }
 
 void gameInputHandle(GameVar* gameVar) {
+    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+        Vector2 pos = Vector2Scale(GetMousePosition(), 1 / gameVar->camera.zoom);
+        printf("(%.0f, %.0f)\n", pos.x, pos.y);
+        sceneMouseUps[gameVar->scene](gameVar, pos, LEFT);
+    } else if (IsMouseButtonPressed(MOUSE_BUTTON_RIGHT)) {
+        Vector2 pos = Vector2Scale(GetMousePosition(), 1 / gameVar->camera.zoom);
+        printf("(%.0f, %.0f)\n", pos.x, pos.y);
+        sceneMouseUps[gameVar->scene](gameVar, pos, RIGHT);
+    }
     sceneKeyDowns[gameVar->scene](gameVar);
 }
 

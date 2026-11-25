@@ -20,6 +20,13 @@ struct UIFile {
 
 struct UIField {
     Rectangle buttonMenu;
+    Rectangle buttonInventory;
+    Rectangle buttonInteract;
+    Rectangle buttonMap;
+    Rectangle buttonLeft;
+    Rectangle buttonRight;
+    Rectangle buttonUp;
+    Rectangle buttonDown;
 };
 
 struct UIInventory {

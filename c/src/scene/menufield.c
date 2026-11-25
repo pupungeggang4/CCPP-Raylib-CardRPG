@@ -38,5 +38,9 @@ void sceneMenuFieldKeyDown(GameVar* gameVar) {
 }
 
 void sceneMenuFieldMouseUp(GameVar* gameVar, Vector2 pos, int button) {
-
+    if (CheckCollisionPointRec(pos, uiMenuField.buttonResume)) gameVar->menu = FALSE;
+    else if (CheckCollisionPointRec(pos, uiMenuField.buttonExit)) {
+        gameVar->menu = FALSE;
+        gameVar->sceneNext = S_TITLE;
+    } else if (CheckCollisionPointRec(pos, uiMenuField.buttonQuit)) gameVar->running = FALSE;
 }
