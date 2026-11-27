@@ -17,12 +17,20 @@ UIFile uiFile = {
 UIField uiField = {
     {740, 20, 40, 40}, // buttonMenu
     {740, 540, 40, 40}, // buttonInventory
+    {722, 540}, // textInventory
     {740, 480, 40, 40}, // buttonInteract
+    {722, 480}, // textInteract
     {680, 540, 40, 40}, // buttonMap
+    {662, 540}, // textMap
     {20, 480, 40, 40}, // buttonLeft
     {140, 480, 40, 40}, // buttonRight
     {80, 420, 40, 40}, // buttonUp
     {80, 540, 40, 40}, // buttonDown
+};
+
+UIInventory uiInventory = {
+    {40, 40, 720, 520}, // rect
+    {720, 40, 40, 40}, // buttonClose
 };
 
 UIMenuField uiMenuField = {

@@ -21,8 +21,11 @@ struct UIFile {
 struct UIField {
     Rectangle buttonMenu;
     Rectangle buttonInventory;
+    Vector2 textInventory;
     Rectangle buttonInteract;
+    Vector2 textInteract;
     Rectangle buttonMap;
+    Vector2 textMap;
     Rectangle buttonLeft;
     Rectangle buttonRight;
     Rectangle buttonUp;

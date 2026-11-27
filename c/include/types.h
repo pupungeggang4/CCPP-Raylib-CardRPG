@@ -3,9 +3,13 @@
 
 enum Boolean {FALSE, TRUE};
 enum Direction {LEFT, RIGHT, UP, DOWN};
-enum TextureName {T_MENU, T_MAP, T_INVENTORY, T_INTERACT, T_ARROW_LEFT, T_ARROW_RIGHT, T_ARROW_UP, T_ARROW_DOWN};
+enum TextureName {
+    T_MENU, T_MAP, T_INVENTORY, T_INTERACT, T_ARROW_LEFT, T_ARROW_RIGHT, T_ARROW_UP, T_ARROW_DOWN,
+    T_ENTITY
+};
+enum EntityType {E_PORTAL, E_SAVE, E_MONSTER};
 enum SceneName {S_TITLE, S_FILE, S_FIELD, S_BATTLE};
-enum SceneStateName {ST_NORMAL, ST_INVENTORY, ST_MENU};
+enum SceneStateName {ST_NORMAL, ST_INVENTORY, ST_MAP};
 
 typedef struct Asset Asset;
 typedef struct UITitle UITitle;
@@ -16,6 +20,9 @@ typedef struct UIMap UIMap;
 typedef struct UIBattle UIBattle;
 typedef struct UIMenuField UIMenuField;
 typedef struct UIMenuBattle UIMenuBattle;
+
+typedef struct Vector2i Vector2i;
+typedef struct Recti Recti;
 
 typedef struct FieldEntity FieldEntity;
 typedef struct FieldPlayer FieldPlayer;

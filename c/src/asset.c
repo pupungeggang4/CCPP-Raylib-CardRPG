@@ -11,6 +11,8 @@ void assetLoad(Asset* asset) {
     asset->texture[T_ARROW_RIGHT] = LoadTexture("asset/image/arrow_right.png");
     asset->texture[T_ARROW_UP] = LoadTexture("asset/image/arrow_up.png");
     asset->texture[T_ARROW_DOWN] = LoadTexture("asset/image/arrow_down.png");
+
+    asset->texture[T_ENTITY] = LoadTexture("asset/image/entity.png");
 }
 
 void assetDispose(Asset* asset) {

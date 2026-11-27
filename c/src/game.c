@@ -2,6 +2,9 @@
 #include "gamevar.h"
 
 #include "asset.h"
+#include "field.h"
+
+#include "fieldhandler.h"
 #include "scene.h"
 
 void gameInit(GameVar* gameVar) {
@@ -24,6 +27,7 @@ void gameInit(GameVar* gameVar) {
     Camera2D tempCamera = {0}; gameVar->camera = tempCamera;
 
     assetLoad(&asset);
+    fieldInit(gameVar, &gameVar->field);
     gameVar->scene = S_TITLE;
 }
 

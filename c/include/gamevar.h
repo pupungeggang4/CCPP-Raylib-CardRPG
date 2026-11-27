@@ -3,6 +3,7 @@
 
 #include "includes.h"
 #include "types.h"
+#include "field.h"
 
 struct SceneTitleVar {
     int selected;
@@ -32,6 +33,8 @@ struct GameVar {
     SceneFileVar sceneFileVar;
     SceneFieldVar sceneFieldVar;
     SceneBattleVar sceneBattleVar;
+
+    Field field;
 };
 
 extern GameVar gameVar;
